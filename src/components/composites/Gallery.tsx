@@ -4,6 +4,7 @@ import 'yet-another-react-lightbox/styles.css'
 import type { Photo } from '../../types'
 import { cn } from '../../lib/utils'
 import { useReducedMotion } from '../../hooks'
+import { Skeleton } from '../primitives'
 
 interface GalleryProps {
   photos: Photo[]
@@ -29,10 +30,8 @@ function GalleryImage({ photo, onClick, reducedMotion }: GalleryImageProps) {
         reducedMotion ? 'opacity-100' : 'animate-gallery-item'
       )}
     >
-      {/* Loading placeholder */}
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-stone-300 dark:bg-stone-700" />
-      )}
+      {/* Loading skeleton */}
+      {!isLoaded && !hasError && <Skeleton className="absolute inset-0" />}
 
       {/* Image */}
       {!hasError && (
