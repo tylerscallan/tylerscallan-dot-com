@@ -1,0 +1,8 @@
+export { default as HomePage } from './HomePage'
+export { default as AboutPage } from './AboutPage'
+export { default as ConnectPage } from './ConnectPage'
+export { default as EditorialsPage } from './EditorialsPage'
+export { default as EditorialDetailPage } from './EditorialDetailPage'
+export { default as SoftwarePage } from './SoftwarePage'
+export { default as SoftwareDetailPage } from './SoftwareDetailPage'
+export { default as NotFoundPage } from './NotFoundPage'

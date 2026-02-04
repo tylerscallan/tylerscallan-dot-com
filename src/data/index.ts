@@ -1,0 +1,6 @@
+export { aboutData } from './about'
+export { editorials, type Editorial } from './editorials'
+export { iconMap } from './icons'
+export { photos } from './photography'
+export { socials, type Social } from './socials'
+export { software } from './software'

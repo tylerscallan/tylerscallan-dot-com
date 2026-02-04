@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    font-size: 18px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 dark:bg-stone-900 dark:text-stone-100 antialiased;
+    font-family: 'halyard-display', 'Outfit', sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'halyard-display', 'Outfit', sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  /* Site title */
+  .site-title {
+    font-family: 'halyard-display', 'Outfit', sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+    font-size: clamp(24px, 4vw, 38px);
+    line-height: 1.2;
+    @apply text-stone-900 dark:text-stone-100;
+  }
+
+  /* Navigation links - body font styling */
+  .nav-link {
+    font-family: 'halyard-display', 'Outfit', sans-serif;
+    font-weight: 200;
+    font-size: clamp(14px, 2vw, 18px);
+    letter-spacing: 0.03em;
+    text-transform: none;
+    line-height: 1.4;
+    @apply text-stone-900 dark:text-stone-100;
+  }
+
+  .nav-link-active {
+    @apply text-stone-900 dark:text-stone-100 underline underline-offset-4;
+  }
+
+  .gallery-grid {
+    padding-top: 1em;
+    max-width: 2000px;
+  }
+
+  .gallery-item {
+    animation: galleryFadeIn 0.9s ease-out forwards;
+    opacity: 0;
+  }
+
+  .gallery-item img {
+    border-radius: 0;
+  }
+}
+
+@layer utilities {
+  /* Legacy fade-in (kept for compatibility) */
+  .fade-in {
+    animation: fadeIn 0.9s ease-out;
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+  }
+
+  /* Page entrance animation */
+  .animate-page-enter {
+    animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* iOS icon entrance animation */
+  .animate-ios-icon-fade-in {
+    animation: iosIconFadeIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* Mobile menu animation */
+  .animate-mobile-menu-enter {
+    animation: mobileMenuEnter 0.2s ease-out forwards;
+  }
+
+  .animate-mobile-menu-exit {
+    animation: mobileMenuExit 0.15s ease-in forwards;
+  }
+
+  /* Gallery item entrance */
+  .animate-gallery-item {
+    animation: galleryItemFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Page entrance - fade with subtle scale */
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Gallery - fade only, no scale */
+  @keyframes galleryItemFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Legacy fade-in - fade only */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes galleryFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* iOS icon entrance - fade + scale (unchanged) */
+  @keyframes iosIconFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Mobile menu animations */
+  @keyframes mobileMenuEnter {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes mobileMenuExit {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+}
+
+/* Lightbox overrides */
+.yarl__root {
+  --yarl__color_backdrop: rgba(255, 255, 255, 0.9);
+  --yarl__color_button: #333;
+  --yarl__color_button_active: #000;
+}
+
+.yarl__slide {
+  padding: 60px 100px;
+}
+
+.yarl__slide_image {
+  max-width: 85% !important;
+  max-height: 85% !important;
+}
+
+.yarl__button {
+  filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-filter: none !important;
+}
+
+.yarl__toolbar {
+  top: 0 !important;
+  right: 0 !important;
+}
+
+.yarl__icon {
+  filter: none !important;
+  transform: scale(0.85);
+}
+
+/* Shimmer skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    theme('colors.stone.200') 0%,
+    theme('colors.stone.100') 50%,
+    theme('colors.stone.200') 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+:is(.dark .animate-shimmer) {
+  background: linear-gradient(
+    90deg,
+    theme('colors.stone.700') 0%,
+    theme('colors.stone.600') 50%,
+    theme('colors.stone.700') 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* Menu item staggered entrance */
+@keyframes menuItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-item-enter {
+  animation: menuItemFadeIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .animate-page-enter,
+  .animate-ios-icon-fade-in,
+  .animate-mobile-menu-enter,
+  .animate-mobile-menu-exit,
+  .animate-gallery-item,
+  .animate-menu-item-enter,
+  .gallery-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-shimmer {
+    animation: none !important;
+    background: theme('colors.stone.200') !important;
+  }
+
+  :is(.dark .animate-shimmer) {
+    background: theme('colors.stone.700') !important;
+  }
+}

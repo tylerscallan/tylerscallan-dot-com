@@ -1,0 +1,11 @@
+name: tylerscallan-dot-com
+
+services:
+  web:
+    container_name: tylerscallan-dot-com
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "27100:80"
+    restart: unless-stopped

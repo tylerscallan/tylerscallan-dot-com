@@ -1,0 +1,12 @@
+# Code Owners for tylerscallan-dot-com
+# These owners will be requested for review when someone opens a pull request
+
+# Default owners for everything in the repo
+* @tylerscallan
+
+# Frontend components
+/src/components/ @tylerscallan
+
+# Configuration files
+*.config.* @tylerscallan
+/.github/ @tylerscallan

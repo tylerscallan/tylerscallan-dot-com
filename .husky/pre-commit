@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Verify all thumbnails exist and are up-to-date
+./scripts/verify-thumbnails.sh || {
+  echo "❌ Thumbnail verification failed. Run: npm run generate:thumbs"
+  exit 1
+}
+
+npx lint-staged

@@ -1,0 +1,33 @@
+import * as LucideIcons from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
+export const iconMap: Record<string, LucideIcon> = {
+  instagram: LucideIcons.Instagram,
+  linkedin: LucideIcons.Linkedin,
+  twitter: LucideIcons.Twitter,
+  facebook: LucideIcons.Facebook,
+  youtube: LucideIcons.Youtube,
+  github: LucideIcons.Github,
+  mail: LucideIcons.Mail,
+  globe: LucideIcons.Globe,
+  camera: LucideIcons.Camera,
+  music: LucideIcons.Music,
+  video: LucideIcons.Video,
+  link: LucideIcons.Link,
+  messageCircle: LucideIcons.MessageCircle,
+  phone: LucideIcons.Phone,
+  mapPin: LucideIcons.MapPin,
+  bookmark: LucideIcons.Bookmark,
+  heart: LucideIcons.Heart,
+  star: LucideIcons.Star,
+  share: LucideIcons.Share2,
+  send: LucideIcons.Send,
+  rss: LucideIcons.Rss,
+  podcast: LucideIcons.Podcast,
+  shopping: LucideIcons.ShoppingBag,
+  dollar: LucideIcons.DollarSign,
+  coffee: LucideIcons.Coffee,
+  twitch: LucideIcons.Twitch,
+  gamepad2: LucideIcons.Gamepad2,
+  cloud: LucideIcons.Cloud,
+}
