@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { aboutData } from '../data/about'
 import { PageTransition, Skeleton } from '../components'
 import { cn } from '../lib/utils'
-import { useDocumentTitle } from '../hooks'
+import { useDocumentTitle, useReducedMotion } from '../hooks'
 
 export default function AboutPage() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
+  const reducedMotion = useReducedMotion()
 
   useDocumentTitle('About')
 
@@ -42,7 +43,7 @@ export default function AboutPage() {
           {/* Image - right side */}
           <div className="w-full md:w-1/2 order-1 md:order-2">
             <div
-              className="relative overflow-hidden"
+              className={cn('relative overflow-hidden', !reducedMotion && 'animate-gallery-item')}
               style={{
                 WebkitMaskImage: '-webkit-radial-gradient(white, black)',
                 borderRadius: '10px',
