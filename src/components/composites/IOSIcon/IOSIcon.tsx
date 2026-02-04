@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { cn } from '../../../lib/utils'
 import { IOS_ICON, ANIMATION } from '../../../constants'
-import { Skeleton } from '../../primitives'
 
 interface IOSIconProps {
   name: string
@@ -64,9 +63,6 @@ export default function IOSIcon({
             borderRadius: IOS_ICON.borderRadius,
           }}
         >
-          {/* Loading skeleton */}
-          {!isLoaded && !hasError && <Skeleton className="absolute inset-0 rounded-[22.37%]" />}
-
           {/* Icon image */}
           {image && !hasError && (
             <img

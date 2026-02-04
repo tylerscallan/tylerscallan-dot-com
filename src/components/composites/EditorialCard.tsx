@@ -2,7 +2,6 @@ import { useState } from 'react'
 import type { Editorial } from '../../data/editorials'
 import { cn } from '../../lib/utils'
 import { useReducedMotion } from '../../hooks'
-import { Skeleton } from '../primitives'
 
 interface EditorialCardProps {
   editorial: Editorial
@@ -17,13 +16,10 @@ export default function EditorialCard({ editorial }: EditorialCardProps) {
     <article className="group">
       <div
         className={cn(
-          'relative aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-800 mb-4 transition-shadow duration-300',
+          'relative aspect-[4/3] overflow-hidden mb-4 transition-shadow duration-300',
           !reducedMotion && 'group-hover:shadow-lg'
         )}
       >
-        {/* Loading skeleton */}
-        {!isLoaded && !hasError && <Skeleton className="absolute inset-0" />}
-
         {/* Image */}
         {!hasError && (
           <img

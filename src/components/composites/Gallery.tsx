@@ -4,7 +4,6 @@ import 'yet-another-react-lightbox/styles.css'
 import type { Photo } from '../../types'
 import { cn } from '../../lib/utils'
 import { useReducedMotion } from '../../hooks'
-import { Skeleton } from '../primitives'
 
 interface GalleryProps {
   photos: Photo[]
@@ -25,14 +24,11 @@ function GalleryImage({ photo, onClick, reducedMotion }: GalleryImageProps) {
       onClick={onClick}
       aria-label="View photo in full size"
       className={cn(
-        'relative aspect-square overflow-hidden bg-stone-300 dark:bg-stone-700 cursor-pointer',
+        'relative aspect-square overflow-hidden cursor-pointer',
         'focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-400 dark:focus-visible:ring-stone-500 focus-visible:ring-offset-2',
         reducedMotion ? 'opacity-100' : 'animate-gallery-item'
       )}
     >
-      {/* Loading skeleton */}
-      {!isLoaded && !hasError && <Skeleton className="absolute inset-0" />}
-
       {/* Image */}
       {!hasError && (
         <img
