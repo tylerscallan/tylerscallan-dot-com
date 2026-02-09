@@ -28,10 +28,10 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "lucide-react": "^0.468.0",
+    "lucide-react": "^0.563.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
+    "react-router-dom": "^7.13.0",
     "tailwind-merge": "^3.4.0",
     "yet-another-react-lightbox": "^3.21.7"
   },
